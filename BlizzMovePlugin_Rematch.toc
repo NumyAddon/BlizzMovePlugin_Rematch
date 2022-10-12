@@ -1,0 +1,9 @@
+## Interface: @toc-version-retail@
+## Title: BlizzMove Plugin - Rematch
+## Notes: Allows you to move the Rematch collection window with BlizzMove
+## Author: Numy
+## RequiredDeps: BlizzMove, Rematch
+## Version: @project-version@
+## X-Curse-Project-ID: 688004
+
+BlizzMovePlugin_Rematch.lua
