@@ -2,6 +2,7 @@
 ## Title: BlizzMove Plugin - Rematch
 ## Notes: Allows you to move the Rematch collection window with BlizzMove
 ## Author: Numy
+## IconTexture: 982414
 ## RequiredDeps: BlizzMove, Rematch
 ## Version: @project-version@
 ## X-Curse-Project-ID: 688004
