@@ -25,38 +25,10 @@ function Plugin:ADDON_LOADED(addonName)
     end
 
     local subFrames;
-    if RematchJournal then
-        subFrames = {
-            RematchJournal = {
-                MinVersion = 0,
-                SubFrames = {
-                    ['RematchTeamPanel.List.ScrollFrame.CaptureButton'] = {
-                        MinVersion = 0,
-                    },
-                },
-            },
-        };
-    elseif RematchFrame then
+    if RematchFrame then
         subFrames = {
             RematchFrame = {
                 MinVersion = 0,
-                SubFrames = {
-                    ['RematchFrame.TeamsPanel.List.ScrollBox'] = {
-                        MinVersion = 0,
-                    },
-                    ['RematchFrame.TargetsPanel.List.ScrollBox'] = {
-                        MinVersion = 0,
-                    },
-                    ['RematchFrame.QueuePanel.List.ScrollBox'] = {
-                        MinVersion = 0,
-                    },
-                    ['RematchFrame.OptionsPanel.List.ScrollBox'] = {
-                        MinVersion = 0,
-                    },
-                    ['RematchFrame.PetsPanel.List.ScrollBox'] = {
-                        MinVersion = 0,
-                    },
-                },
             },
         };
     end
@@ -70,7 +42,7 @@ function Plugin:ADDON_LOADED(addonName)
         {
             ['CollectionsJournal'] =
             {
-                MinVersion = 20000,
+                MinVersion = 0,
                 SubFrames = subFrames,
             },
         },
