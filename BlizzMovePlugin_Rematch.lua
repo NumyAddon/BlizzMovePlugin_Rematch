@@ -12,40 +12,27 @@ function Plugin:ADDON_LOADED(addonName)
 
     --- @type BlizzMoveAPI
     local BlizzMoveAPI = _G.BlizzMoveAPI;
-    if(BlizzMoveAPI and BlizzMoveAPI.GetVersion and BlizzMoveAPI.RegisterAddOnFrames) then
+    if BlizzMoveAPI and BlizzMoveAPI.GetVersion and BlizzMoveAPI.RegisterAddOnFrames then
         local _, _, _, _, versionInt = BlizzMoveAPI:GetVersion();
         if (versionInt == nil or versionInt >= 30200) then
             compatible = true;
         end
     end
 
-    if(not compatible) then
+    if not compatible then
         print(name .. ' is not compatible with the current version of BlizzMove, please update.');
         return;
     end
 
-    local subFrames;
-    if RematchFrame then
-        subFrames = {
-            RematchFrame = {
-                MinVersion = 0,
-            },
-        };
-    end
-
-    if not subFrames then
+    if not RematchFrame then
         print(name .. ' current version of Rematch is not supported by this plugin. Please notify the author of this plugin on CurseForge or GitHub.');
         return;
     end
-    local frameTable = {
-        ['Blizzard_Collections'] =
-        {
-            ['CollectionsJournal'] =
-            {
-                MinVersion = 0,
-                SubFrames = subFrames,
-            },
-        },
-    };
-    BlizzMoveAPI:RegisterAddOnFrames(frameTable);
+    hooksecurefunc(RematchFrame, 'SetParent', function(_, parent)
+        if parent == CollectionsJournal then
+            BlizzMoveAPI:UnregisterFrame('Rematch', 'RematchFrame');
+        else
+            BlizzMoveAPI:RegisterAddOnFrames({ ['Rematch'] = { RematchFrame = {} } });
+        end
+    end);
 end
