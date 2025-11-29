@@ -1,4 +1,4 @@
-## Interface: @toc-version-retail@,@toc-version-midnight@
+## Interface: @toc-version-retail@,@toc-version-midnight@,120000
 ## Title: BlizzMove Plugin - Rematch
 ## Notes: Allows you to move the Rematch collection window with BlizzMove
 ## Author: Numy
